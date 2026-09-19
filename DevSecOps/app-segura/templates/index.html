@@ -2,32 +2,33 @@
 
 {% block content %}
 
-<div class="card">
-
-<div class="card-body">
-
 <h2>Panel Seguro</h2>
 
-<p>Aplicación Flask corregida.</p>
+<p class="lead">Herramientas de red y archivos protegidas por sesión.</p>
 
-<hr>
-
-<div class="d-grid gap-2">
-
-<a href="/login" class="btn btn-primary">Login</a>
-
-<a href="/ping" class="btn btn-warning">Ping</a>
-
-<a href="/download" class="btn btn-secondary">Descargar archivo</a>
-
-<a href="/profile" class="btn btn-success">Perfil</a>
-
-<a href="/search" class="btn btn-info">Buscar</a>
-
+<div class="tiles">
+    <a class="tile tile-warning" href="/ping">
+        <strong>Ping</strong>
+        <span>Comprueba si un host responde.</span>
+    </a>
+    <a class="tile tile-secondary" href="/download">
+        <strong>Descargar archivo</strong>
+        <span>Lee un archivo de la carpeta uploads.</span>
+    </a>
+    <a class="tile tile-success" href="/profile">
+        <strong>Perfil</strong>
+        <span>Genera el hash bcrypt de una contraseña.</span>
+    </a>
+    <a class="tile tile-info" href="/search">
+        <strong>Buscar</strong>
+        <span>Prueba el buscador del panel.</span>
+    </a>
 </div>
 
-</div>
-
-</div>
+{% if session.user %}
+<p>Sesión iniciada como <strong>{{ session.user }}</strong>.</p>
+{% else %}
+<p><a href="/login" class="btn btn-primary">Entrar</a></p>
+{% endif %}
 
 {% endblock %}
