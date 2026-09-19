@@ -181,6 +181,4 @@ Esta versión existe para que el pipeline tenga algo real que detectar, y para p
 - **Trivy** puede seguir mostrando algunos hallazgos `UNFIXED` (sin parche publicado por Debian todavía). El workflow filtra por severidad (`CRITICAL,HIGH,MEDIUM`) e ignora los que no tienen parche disponible (`ignore-unfixed: true`), para centrar el reporte en lo accionable.
 - **ZAP** ejecuta un *baseline scan* (pasivo, no exploit activo), por lo que sus hallazgos suelen ser de *hardening* (cabeceras, cookies, SRI) más que vulnerabilidades críticas explotables.
 
-## Licencia
-
 Proyecto con fines educativos / práctica de DevSecOps.
