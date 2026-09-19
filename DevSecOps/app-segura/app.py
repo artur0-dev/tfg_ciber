@@ -329,8 +329,6 @@ def security_headers(response):
 
 if __name__ == "__main__":
 
-    # Nota: en producción esta app se sirve con Gunicorn (ver Dockerfile),
-    # que sí respeta el header "Server" definido en security_headers().
     # Este bloque solo se usa para pruebas locales con "python app.py".
     from werkzeug.serving import WSGIRequestHandler
 
