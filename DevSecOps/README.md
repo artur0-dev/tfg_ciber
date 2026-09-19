@@ -27,7 +27,6 @@ Ambas versiones son un pequeño panel de administración web con las mismas ruta
 - **Backend:** Python 3.11 + Flask 3.x
 - **Formularios:** Flask-WTF (protección CSRF)
 - **Auth:** bcrypt + SQLite
-- **Servidor de producción:** Gunicorn
 - **Contenedor:** Docker (build multi-stage)
 
 ## Estructura del proyecto
@@ -35,9 +34,9 @@ Ambas versiones son un pequeño panel de administración web con las mismas ruta
 ```
 .
 ├── app-segura/
-│   ├── app.py               # Lógica de la aplicación Flask (corregida)
+│   ├── app.py               # Lógica de la aplicación Flask
 │   ├── requirements.txt     # Dependencias Python
-│   ├── Dockerfile           # Imagen multi-stage con Gunicorn
+│   ├── Dockerfile
 │   ├── templates/
 │   │   ├── base.html
 │   │   ├── index.html
@@ -88,7 +87,7 @@ python app.py
 
 Ambas quedan disponibles en `http://localhost:5000`.
 
-⚠️ **La versión vulnerable no debe exponerse en redes públicas ni desplegarse en ningún entorno real.** Existe únicamente para fines educativos y para comparar los reportes del pipeline.
+**La versión vulnerable no debe exponerse en redes públicas ni desplegarse en ningún entorno real.** Existe únicamente para fines educativos y para comparar los reportes del pipeline.
 
 ### Con Docker
 
