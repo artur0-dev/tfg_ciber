@@ -2,11 +2,30 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>App Segura</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Panel Seguro{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <div class="container mt-4">
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="/">Panel Seguro</a>
+            <nav class="nav">
+                {% if session.user %}
+                <a href="/ping">Ping</a>
+                <a href="/download">Descargar</a>
+                <a href="/profile">Perfil</a>
+                <a href="/search">Buscar</a>
+                <a href="/logout">Salir ({{ session.user }})</a>
+                {% else %}
+                <a href="/login">Entrar</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mt-4">
         {% block content %}{% endblock %}
-    </div>
+    </main>
 </body>
 </html>
