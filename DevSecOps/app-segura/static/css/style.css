@@ -1,0 +1,278 @@
+:root {
+  --bg: #edf0f3;
+  --surface: #ffffff;
+  --ink: #1a2430;
+  --muted: #5a6675;
+  --line: #d5dbe2;
+
+  --bar: #1f3a56;
+  --bar-ink: #f2f6fa;
+
+  /* Un color por herramienta: se repite en su tarjeta, su botón y su página */
+  --primary: #2f5d8a;
+  --warning: #e3a52c;
+  --warning-ink: #2a1e04;
+  --secondary: #5b6776;
+  --success: #2f7a55;
+  --info: #2a7f8e;
+
+  --danger-bg: #fbeaec;
+  --danger-ink: #8c2432;
+  --ok-bg: #e6f3ec;
+  --ok-ink: #1d5a3b;
+
+  --radius: 8px;
+  --radius-sm: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111a23;
+    --surface: #1a2532;
+    --ink: #e6ecf2;
+    --muted: #9aa7b6;
+    --line: #2c3a49;
+    --bar: #0d2033;
+    --danger-bg: #3a1e24;
+    --danger-ink: #f0b3bb;
+    --ok-bg: #173226;
+    --ok-ink: #a7dcc0;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", "DejaVu Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* ---------- Barra superior ---------- */
+
+.topbar {
+  background: var(--bar);
+  color: var(--bar-ink);
+}
+
+.topbar-inner {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.01em;
+  color: var(--bar-ink);
+  text-decoration: none;
+}
+
+.nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+
+.nav a {
+  color: var(--bar-ink);
+  opacity: 0.8;
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.15rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav a:hover { opacity: 1; border-bottom-color: currentColor; }
+
+/* ---------- Contenedor ---------- */
+
+.container {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.mt-4 { margin-top: 2rem; }
+.mb-3 { margin-bottom: 1rem; }
+.gap-2 { gap: 0.6rem; }
+.d-grid { display: grid; }
+
+/* ---------- Tipografía ---------- */
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p { margin: 0 0 1rem; max-width: 60ch; }
+
+.lead { color: var(--muted); font-size: 1.05rem; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+
+a { color: var(--primary); }
+
+@media (prefers-color-scheme: dark) { a { color: #8fb8e0; } }
+
+pre {
+  margin: 0;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-family: ui-monospace, "DejaVu Sans Mono", Consolas, monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  min-height: 3.25rem;
+}
+
+/* ---------- Formularios ---------- */
+
+label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.form-control:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 1px;
+  border-color: var(--primary);
+}
+
+/* ---------- Botones ---------- */
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.15rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--secondary);
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn:hover { filter: brightness(1.08); }
+.btn:active { transform: translateY(1px); }
+
+.btn:focus-visible,
+.tile:focus-visible,
+.nav a:focus-visible,
+.brand:focus-visible,
+.list-group-item:focus-visible {
+  outline: 3px solid var(--warning);
+  outline-offset: 2px;
+}
+
+.btn-primary   { background: var(--primary); }
+.btn-warning   { background: var(--warning); color: var(--warning-ink); }
+.btn-secondary { background: var(--secondary); }
+.btn-success   { background: var(--success); }
+.btn-info      { background: var(--info); }
+
+/* ---------- Avisos ---------- */
+
+.alert {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-sm);
+  border-left: 4px solid;
+  overflow-wrap: anywhere;
+}
+
+.alert h2 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+
+.alert-danger  { background: var(--danger-bg); color: var(--danger-ink); border-color: var(--danger-ink); }
+.alert-success { background: var(--ok-bg);     color: var(--ok-ink);     border-color: var(--ok-ink); }
+
+/* ---------- Tarjeta y lista ---------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.card-body { padding: 1.5rem; }
+
+.list-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.list-group-item {
+  display: block;
+  padding: 0.85rem 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.list-group-item + .list-group-item { border-top: 1px solid var(--line); }
+.list-group-item:hover { background: var(--bg); }
+
+/* ---------- Inicio: herramientas ---------- */
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+
+.tile {
+  display: block;
+  padding: 1rem 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--tile, var(--secondary));
+  border-radius: var(--radius);
+}
+
+.tile:hover { border-color: var(--tile, var(--secondary)); }
+
+.tile strong { display: block; font-size: 1.1rem; }
+.tile span   { color: var(--muted); font-size: 0.95rem; }
+
+.tile-warning   { --tile: var(--warning); }
+.tile-secondary { --tile: var(--secondary); }
+.tile-success   { --tile: var(--success); }
+.tile-info      { --tile: var(--info); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn:active { transform: none; }
+}
