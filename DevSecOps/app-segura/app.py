@@ -2,7 +2,7 @@ import re
 import os
 import shutil
 import sqlite3
-import subprocess  # nosec B404 - usado únicamente con lista de args (sin shell=True) y ruta absoluta resuelta abajo
+import subprocess
 
 from functools import wraps
 
